@@ -29,14 +29,14 @@ class _BMIFormState extends State<BMIForm> {
     if (_formKey.currentState!.validate()) {
       double weight = double.parse(_weightController.text);
       double height = double.parse(_heightController.text);
-      
+
       BodyMassIndex bmi = BodyMassIndex(weightKg: weight, heightCm: height);
       double bmiValue = bmi.calculateBMI();
       String category = bmi.getCategory();
 
       setState(() {
         _result = 'Votre IMC est ${bmiValue.toStringAsFixed(2)}. '
-                  'Catégorie : $category';
+            'Catégorie : $category';
       });
 
       widget.onBMICalculated(bmiValue);
